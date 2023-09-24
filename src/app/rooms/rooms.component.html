@@ -1,0 +1,37 @@
+<!--<h1>Welcome to {{ hotelName }}</h1>-->
+<app-header></app-header>
+
+<div [hidden]="hideRooms">
+  Number of Rooms (From rooms.compenent):
+  <div [ngStyle]="{'color' : rooms.availableRooms ? 'green' : 'red'}" [innerText]="numberOfRooms"></div>
+</div>
+
+<div *ngIf="selectedRomm">
+  <p>{{ selectedRomm | json }}</p>
+</div>
+
+<div>
+  <button (click)="addRoom()">Add Room</button>
+</div>
+
+<div *ngIf="rooms.availableRooms > 5">
+  <h3>From rooms.list.component</h3>
+
+  <app-rooms-list [roomsChild]="rommList" [title]="titre" [nom]="'Naimi'" (roomSelectedEvent)="selectRoom($event)"></app-rooms-list>
+</div>
+
+<button (click)="toggle()"></button>
+<app-header></app-header>
+<br>
+<app-header></app-header>
+
+<br>
+<h2 style="color: red;">Content projection using (ng-content): </h2>
+
+<app-container>
+  <app-employee></app-employee>
+  <h1>-----------------------------------------------</h1>
+  <h1>This is form ng-content</h1>
+  <h1>-----------------------------------------------</h1>
+  <app-admins></app-admins>
+</app-container>

@@ -1,0 +1,27 @@
+<h1>{{title}}</h1>
+Rooms List:
+<table border="1px">
+  <tr>
+    <th>Even/Odd</th>
+    <th>Room Num</th>
+    <th>RoomType</th>
+    <th>Amenities</th>
+    <th>Price</th>
+    <th>Check-In</th>
+    <th>
+      Select Room
+    </th>
+  </tr>
+  <tr  [ngClass]="e? 'event' : 'add'"   *ngFor="let romm of roomsChild; let e=even ; let o=odd">
+    <td>{{ e ? "Even" : "Odd"}}</td>
+    <td>{{romm.rommNumber}}</td>
+    <td>{{romm.roomType}}</td>
+    <td>{{romm.amenities}}</td>
+    <td>{{romm.price}}</td>
+    <td>{{romm.checkinTime | date: 'meduimDate'}}</td>
+    <td>
+      <button class="btn btn-primary" (click)="romSelectedEvent(romm)">select</button>
+    </td>
+  </tr>
+</table>
+<h1>Bonjour Madame : {{nom}}</h1>
